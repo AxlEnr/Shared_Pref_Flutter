@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_pref/models/color_theme.dart';
+import 'package:shared_pref/utils/preferences_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_pref/models/custom_font_style.dart';
 import 'package:shared_pref/models/background.dart';
@@ -20,12 +21,28 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   MenuEntry? selectedEntry;
-  ColorTheme selectedColor = ColorTheme.blue;
+  ColorTheme selectedColor = ColorTheme.azul;
   CustomFontStyle selectedFont = CustomFontStyle.normal;
   Background selectedBackground = Background.light;
   final TextEditingController userName = TextEditingController();
   final TextEditingController userFN = TextEditingController();
   final TextEditingController userSn = TextEditingController();  
+  
+  @override
+  void initState() {
+    super.initState();
+    _loadPreferences();
+  }
+
+  Future<void> _loadPreferences() async {
+  final prefs = await SharedPreferences.getInstance();
+  setState(() {
+    selectedColor = getColorThemeFromString(prefs.getString('theme') ?? 'azul');
+    selectedFont = getFontStyleFromString(prefs.getString('font') ?? 'normal');
+    selectedBackground = getBackgroundFromString(prefs.getString('background') ?? 'light');
+  });
+}
+
 
   void _activateGender(MenuEntry entry) {
     setState(() => selectedEntry = entry);
@@ -52,6 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
     await prefs.setString('theme', selectedColor.name);
     await prefs.setString('font', selectedFont.name);
     await prefs.setString('gender', selectedEntry?.name ?? '');
+
+    await prefs.setString('backgroundLabel', selectedBackground.label);
+    await prefs.setString('themeLabel', selectedColor.label);
+    await prefs.setString('fontLabel', selectedFont.label);
+    await prefs.setString('genderLabel', selectedEntry?.label ?? '');
     
     if (prefs.getString('name')?.isNotEmpty == true && 
         prefs.getString('fn')?.isNotEmpty == true && 
@@ -79,14 +101,24 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: TextStyle(
-            fontStyle: selectedFont.style,
-            fontWeight: selectedFont.weight,
-            color: Colors.white,
+        automaticallyImplyLeading: false,
+        title: Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.home),
+                color: Colors.white,
+              ),
+              Text(
+                widget.title,
+                style: TextStyle(
+                  fontStyle: selectedFont.style,
+                  fontWeight: selectedFont.weight,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
-        ),
         elevation: 4,
         backgroundColor: selectedColor.color,
       ),
@@ -217,6 +249,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontStyle: selectedFont.style,
                   fontWeight: selectedFont.weight,
                 ),
+
+                Text('Axel Enrique Garcia Vazquez', style: TextStyle(
+                  fontSize: 20,
+                  color: selectedColor.color,
+                ),)
               ],
             ),
           ),

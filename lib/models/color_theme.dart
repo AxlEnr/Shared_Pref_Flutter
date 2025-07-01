@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
 
 enum ColorTheme {
-  blue,
-  green,
-  purple,
-  orange,
+  azul,
+  verde,
+  purpura,
+  naranja,
 }
 
 extension ColorThemeExtension on ColorTheme {
   String get label {
     switch (this) {
-      case ColorTheme.blue:
+      case ColorTheme.azul:
         return 'Azul';
-      case ColorTheme.green:
+      case ColorTheme.verde:
         return 'Verde';
-      case ColorTheme.purple:
+      case ColorTheme.purpura:
         return 'Morado';
-      case ColorTheme.orange:
+      case ColorTheme.naranja:
         return 'Naranja';
     }
   }
 
   Color get color {
     switch (this) {
-      case ColorTheme.blue:
+      case ColorTheme.azul:
         return Colors.blue;
-      case ColorTheme.green:
+      case ColorTheme.verde:
         return Colors.green;
-      case ColorTheme.purple:
+      case ColorTheme.purpura:
         return Colors.purple;
-      case ColorTheme.orange:
+      case ColorTheme.naranja:
         return Colors.orange;
     }
   }

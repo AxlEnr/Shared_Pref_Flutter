@@ -4,26 +4,27 @@ import '../models/background.dart';
 
 ColorTheme getColorThemeFromString(String name) {
   switch (name.toLowerCase()) {
-    case 'green':
-      return ColorTheme.green;
-    case 'purple':
-      return ColorTheme.purple;
-    case 'orange':
-      return ColorTheme.orange;
-    case 'blue':
+    case 'verde':
+      return ColorTheme.verde;
+    case 'purpura':
+      return ColorTheme.purpura;
+    case 'naranja':
+      return ColorTheme.naranja;
+    case 'azul':
     default:
-      return ColorTheme.blue;
+      return ColorTheme.azul;
   }
 }
 
+
 CustomFontStyle getFontStyleFromString(String name) {
   switch (name.toLowerCase()) {
-    case 'bold':
-      return CustomFontStyle.bold;
-    case 'italic':
-      return CustomFontStyle.italic;
-    case 'bolditalic':
-      return CustomFontStyle.boldItalic;
+    case 'negrita':
+      return CustomFontStyle.negrita;
+    case 'cursiva':
+      return CustomFontStyle.cursiva;
+    case 'negritaCursiva':
+      return CustomFontStyle.negritaCursiva;
     case 'normal':
     default:
       return CustomFontStyle.normal;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 enum CustomFontStyle {
   normal,
-  bold,
-  italic,
-  boldItalic,
+  negrita,
+  cursiva,
+  negritaCursiva,
 }
 
 extension CustomFontStyleExtension on CustomFontStyle {
@@ -12,11 +12,11 @@ extension CustomFontStyleExtension on CustomFontStyle {
     switch (this) {
       case CustomFontStyle.normal:
         return 'Normal';
-      case CustomFontStyle.bold:
+      case CustomFontStyle.negrita:
         return 'Negrita';
-      case CustomFontStyle.italic:
+      case CustomFontStyle.cursiva:
         return 'Cursiva';
-      case CustomFontStyle.boldItalic:
+      case CustomFontStyle.negritaCursiva:
         return 'Negrita y cursiva';
     }
   }
@@ -25,11 +25,11 @@ extension CustomFontStyleExtension on CustomFontStyle {
     switch (this) {
       case CustomFontStyle.normal:
         return FontStyle.normal;
-      case CustomFontStyle.bold:
+      case CustomFontStyle.negrita:
         return FontStyle.normal;
-      case CustomFontStyle.italic:
+      case CustomFontStyle.cursiva:
         return FontStyle.italic;
-      case CustomFontStyle.boldItalic:
+      case CustomFontStyle.negritaCursiva:
         return FontStyle.italic;
     }
   }
@@ -37,10 +37,10 @@ extension CustomFontStyleExtension on CustomFontStyle {
   FontWeight get weight {
     switch (this) {
       case CustomFontStyle.normal:
-      case CustomFontStyle.italic:
+      case CustomFontStyle.cursiva:
         return FontWeight.normal;
-      case CustomFontStyle.bold:
-      case CustomFontStyle.boldItalic:
+      case CustomFontStyle.negrita:
+      case CustomFontStyle.negritaCursiva:
         return FontWeight.bold;
     }
   }
@@ -49,11 +49,11 @@ extension CustomFontStyleExtension on CustomFontStyle {
     switch (this) {
       case CustomFontStyle.normal:
         return 'normal';
-      case CustomFontStyle.bold:
+      case CustomFontStyle.negrita:
         return 'bold';
-      case CustomFontStyle.italic:
+      case CustomFontStyle.cursiva:
         return 'italic';
-      case CustomFontStyle.boldItalic:
+      case CustomFontStyle.negritaCursiva:
         return 'bolditalic';
     }
   }

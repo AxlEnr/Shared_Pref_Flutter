@@ -6,6 +6,7 @@ import 'package:shared_pref/models/background.dart';
 import 'package:shared_pref/utils/decorators.dart';
 import 'package:shared_pref/utils/preferences_utils.dart';
 import 'package:shared_pref/widgets/preferences_card.dart';
+import 'package:shared_pref/pages/home.dart';
 
 class ShowPrefs extends StatefulWidget {
   const ShowPrefs({super.key, required this.title});
@@ -17,7 +18,7 @@ class ShowPrefs extends StatefulWidget {
 
 class _ShowPrefsState extends State<ShowPrefs> {
   Map<String, String> prefsMap = {};
-  ColorTheme selectedColor = ColorTheme.blue;
+  ColorTheme selectedColor = ColorTheme.azul;
   CustomFontStyle selectedFont = CustomFontStyle.normal;
   Background selectedBackground = Background.light;
 
@@ -39,10 +40,10 @@ class _ShowPrefsState extends State<ShowPrefs> {
         'Nombre': prefs.getString('name') ?? '',
         'Primer apellido': prefs.getString('fn') ?? '',
         'Segundo apellido': prefs.getString('sn') ?? '',
-        'Fondo': prefs.getString('background') ?? '',
-        'Tema': prefs.getString('theme') ?? '',
-        'Fuente': prefs.getString('font') ?? '',
-        'Género': prefs.getString('gender') ?? '',
+        'Fondo': prefs.getString('backgroundLabel') ?? '',
+        'Tema': prefs.getString('themeLabel') ?? '',
+        'Fuente': prefs.getString('fontLabel') ?? '',
+        'Género': prefs.getString('genderLabel') ?? '',
       };
     });
   }
@@ -107,13 +108,28 @@ class _ShowPrefsState extends State<ShowPrefs> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text(
-            widget.title,
-            style: TextStyle(
-              fontStyle: selectedFont.style,
-              fontWeight: selectedFont.weight,
-              color: Colors.white,
-            ),
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Guadar Informacion')),
+                  );
+                },
+                icon: Icon(Icons.arrow_back),
+                color: Colors.white,
+              ),
+              Text(
+                widget.title,
+                style: TextStyle(
+                  fontStyle: selectedFont.style,
+                  fontWeight: selectedFont.weight,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
           elevation: 4,
           backgroundColor: selectedColor.color,
@@ -171,6 +187,11 @@ class _ShowPrefsState extends State<ShowPrefs> {
                       },
                     ),
             ),
+
+            Text('Axel Enrique Garcia Vazquez', style: TextStyle(
+                  fontSize: 20,
+                  color: selectedColor.color,
+                ),)
           ],
         ),
       ),
