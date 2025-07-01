@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_pref/models/color_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/color_theme.dart';
-import '../models/custom_font_style.dart';
-import '../models/background.dart';
-import '../models/menu_entry.dart';
-import '../widgets/custom_menu_anchor.dart';
-import '../widgets/text_input_field.dart';
-import '../widgets/save_button.dart';
-import '../utils/decorators.dart';
+import 'package:shared_pref/models/custom_font_style.dart';
+import 'package:shared_pref/models/background.dart';
+import 'package:shared_pref/models/menu_entry.dart';
+import 'package:shared_pref/widgets/custom_menu_anchor.dart';
+import 'package:shared_pref/widgets/text_input_field.dart';
+import 'package:shared_pref/widgets/save_button.dart';
+import 'package:shared_pref/utils/decorators.dart';
 import 'show_prefs.dart';
 
 class MyHomePage extends StatefulWidget {

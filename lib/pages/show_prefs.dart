@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/color_theme.dart';
-import '../models/custom_font_style.dart';
-import '../models/background.dart';
-import '../utils/decorators.dart';
-import '../utils/preferences_utils.dart';
-import '../widgets/preferences_card.dart';
+import 'package:shared_pref/models/color_theme.dart';
+import 'package:shared_pref/models/custom_font_style.dart';
+import 'package:shared_pref/models/background.dart';
+import 'package:shared_pref/utils/decorators.dart';
+import 'package:shared_pref/utils/preferences_utils.dart';
+import 'package:shared_pref/widgets/preferences_card.dart';
 
 class ShowPrefs extends StatefulWidget {
   const ShowPrefs({super.key, required this.title});
