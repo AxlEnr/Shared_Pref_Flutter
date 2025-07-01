@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-enum ColorTheme { blue, green, purple, orange }
+enum ColorTheme {
+  blue,
+  green,
+  purple,
+  orange,
+}
 
 extension ColorThemeExtension on ColorTheme {
   String get label {
@@ -19,7 +24,7 @@ extension ColorThemeExtension on ColorTheme {
   Color get color {
     switch (this) {
       case ColorTheme.blue:
-        return Colors.blueAccent;
+        return Colors.blue;
       case ColorTheme.green:
         return Colors.green;
       case ColorTheme.purple:

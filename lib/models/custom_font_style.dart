@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shared_pref/pages/home.dart';
+
+enum CustomFontStyle {
+  normal,
+  bold,
+  italic,
+  boldItalic,
+}
 
 extension CustomFontStyleExtension on CustomFontStyle {
   String get label {
